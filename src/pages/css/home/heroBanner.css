@@ -1,0 +1,180 @@
+
+/* --- Your Original Styles --- */
+/* We keep all of your stylistic rules */
+
+.herobanner-section {
+    width: 100%;
+    overflow: hidden; /* Important for slick slider */
+    position: relative;
+    max-width: 100dvw;
+    height: 582px; /* You can adjust this height */
+    background-image: url('../../../assets/images/herobanner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(213, 245, 230, 0.8);
+    
+}
+
+.slide {
+    width: 100%;
+}
+
+.herobanner {
+    display: grid !important; /* Use !important to override slick's default display */
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    height: 582px; /* Ensure banner fills the space */
+}
+
+.herobanner div {
+    width: 100%;
+}
+
+.herobanner .hero-text {
+    padding: 0 0 0 90px;
+    font-family: "Playfair Display", Sans-serif;
+}
+
+.hero-text p {
+    color: var(--color-brand);
+    font-size: 18px;
+    margin: 0 0 20px 0;
+    font-family: 'Work sans', sans-serif;
+    margin-bottom: 40px;
+}
+
+/* --- AFTER --- */
+.herobanner div img {
+    object-fit: cover; 
+    width: 100%; /* Use width 100% to fill the grid column */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 582px; /* Prevent image from exceeding banner height */
+ }
+.herobanner h4 {
+    color: var(--color-brand);
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.herobanner h5 {
+    margin-bottom: 15px;
+    color: var(--color-yellow);
+    font-size: 58px;
+    font-weight: 700;
+}
+
+.herobanner span {
+    display: block;
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.herobanner button {
+    background-color: var(--color-green);
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 14px 30px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+ 
+}
+
+/* --- Slick Slider Specific Styles --- */
+/* This positions the dots correctly */
+.herobanner-section .slick-dots {
+    bottom: 25px;
+}
+
+.herobanner-section .slick-slider .slick-next {
+    display: none;
+}
+
+.herobanner-section .slick-dots li button:before {
+    font-size: 12px;
+    color: white;
+    opacity: 0.75;
+    display: none;
+    
+}
+
+.herobanner-section .slick-dots li.slick-active button:before {
+    color: var(--color-yellow);
+    opacity: 1;
+    }
+
+
+/* --- Your Media Queries --- */
+/* We keep all of your responsive styles */
+@media (max-width: 1024px) {
+    .herobanner-section, .herobanner {
+        height: 350px;
+        margin: 20px 0;
+    }
+
+    .herobanner {
+        gap: 50px;
+    }
+
+    .herobanner div img {
+        display: block !important; /* Ensure image is visible */
+        max-width: 314px;
+        max-height: 318px;
+    }
+
+    .herobanner h4, .herobanner h5 {
+        font-size: 40px;
+    }
+
+    .herobanner span {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .herobanner-section {
+        margin: 0;
+    }
+
+    /* Hiding default arrows on mobile */
+    .herobanner-section .slick-prev,
+    .herobanner-section .slick-next {
+        display: none !important;
+    }
+
+    .herobanner div img {
+        display: none !important; /* Hide image on small screens as per your original CSS */
+    }
+
+    .herobanner {
+        display: block !important; /* Switch to block layout */
+        text-align: center;
+        padding: 47px 15px;
+    }
+    
+    .herobanner .hero-text {
+        padding: 0;
+    }
+
+    .herobanner h4, .herobanner h5 {
+        font-size: 36px;
+    }
+    .herobanner h5 {
+        margin: 0 0 10px;
+    }
+
+    .herobanner span {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .herobanner button {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}

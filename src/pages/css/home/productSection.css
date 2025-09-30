@@ -1,0 +1,53 @@
+.products-bg {
+    background-color: var(--color-shade-in-green, #f0fdf4);
+    padding: 20px 0;
+}
+.featured-products-container {
+    position: relative;
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.featured-products-container .section-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.featured-products-container .subtitle {
+    text-align: center;
+    color: var(--color-green, #2e8b57);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-family: "Playfair Display", Sans-serif;
+}
+.featured-products-container .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 auto;
+    color: var(--color-brand, #333);
+    font-family: "Playfair Display", Sans-serif;
+}
+
+
+.featured-products-container .slick-slide {
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Ensure the slider container has no extra space */
+.featured-products-container .slick-list {
+    margin: 0 -10px;
+    padding: 10px 0 20px !important;
+}
+
+/* Fix for the slider track */
+.featured-products-container .slick-track {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Ensure all slides have the same height */
+.featured-products-container .slick-slide > div {
+    height: 100%;
+}

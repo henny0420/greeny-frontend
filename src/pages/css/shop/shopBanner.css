@@ -1,0 +1,56 @@
+
+.herobanner-products {
+    width: 100%;
+    height: 400px;
+    padding: 10px  20px;
+    position: relative;
+}
+
+.herobanner-products img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.hbanner-for-products-text{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    transform: translateX(-50%);
+    transform: translateY(-30%);
+}
+
+.hbanner-for-products-text h4{
+    color: var(--color-brand);
+    font-size: 40px;
+    font-weight: 700;
+    font-family: "Playfair Display", Sans-serif;
+    text-align: center;
+    
+}
+
+.hbanner-for-products-text h5{
+    color: var(--color-green);
+    font-size: 40px;
+    font-weight: 700;
+    font-family: "Playfair Display", Sans-serif;
+
+}
+
+.hbanner-for-products-text p{
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: center;
+    
+}
+
+.hbanner-for-products-text button{
+    padding: 12px;
+    margin: 0 auto;
+    display: block;
+    background-color: var(--color-yellow);
+    border: 0cap;
+    border-radius: 5px;
+    color: white;
+}
+/*

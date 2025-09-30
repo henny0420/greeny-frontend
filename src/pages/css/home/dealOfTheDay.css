@@ -1,0 +1,249 @@
+Your original styles
+.deal-of-the-day {
+    width: 100%;
+    height: fit-content;
+    background-color: var(--color-light-yellow);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.deal-of-the-day .decorative-cutout { /* Style for your decorative image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+.deal-of-the-day .container {
+    position: relative; /* Ensure content is above the cutout image */
+    z-index: 1;
+}
+
+.main-flex {
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.deal-of-the-day h2 {
+    color: var(--color-brand);
+    font-family: "Playfair Display", Sans-serif;
+    font-size: 55px;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+.text-section h4 {
+    font-size: 50px;
+    font-family: "Playfair Display", Sans-serif;
+    margin: 0 auto;
+    max-width: 250px;
+    text-align: center;
+    font-weight: 900;
+    color: var(--color-green);
+}
+
+.text-section span {
+    display: block;
+    font-family: "Playfair Display", Sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-size: 24px;
+    text-align: center;
+    margin: 10px auto;
+    color: var(--color-brand);
+}
+
+.offer p {
+    display: inline;
+    align-items: center;
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-brand);
+}
+
+.offer .color-green {
+    color: var(--color-green);
+}
+
+.order-btn button {
+    background-color: var(--color-green);
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 14px 30px;
+    border: 0;
+    border-radius: 5px;
+    margin: 20px auto;
+    display: block;
+    z-index: 99;
+    cursor: pointer;
+}
+
+/* Styles for the slider container */
+.product-slider-wrapper {
+    width: 100%;
+    position: relative; /* Important for positioning arrows */
+}
+
+/*
+================================
+React Slick Styles for the Simple Slider
+(Adapted from your Swiper styles)
+================================
+*/
+.simple-slider .slick-slide > div {
+    margin: 0 10px; /* This creates the gap between slides */
+}
+.simple-slider .slick-list {
+    margin: 0 -10px; /* This compensates for the extra padding on the ends */
+}
+
+.simple-slider .slick-prev,
+.simple-slider .slick-next {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    top: -45px; /* Position above the slider */
+}
+
+.simple-slider .slick-next {
+    right: 0;
+}
+.simple-slider .slick-prev {
+    right: 200px;
+    left: auto;
+}
+
+.simple-slider .slick-prev:before,
+.simple-slider .slick-next:before {
+    color: var(--color-black);
+    font-size: 20px;
+}
+
+.simple-slider .slick-prev:hover,
+.simple-slider .slick-next:hover {
+    background-color: var(--color-yellow);
+    color: white;
+    border-color: var(--color-yellow);
+}
+.simple-slider .slick-prev:hover:before,
+.simple-slider .slick-next:hover:before {
+    color: white;
+}
+
+
+/* card design */
+.product-card img{
+    height: 120px;
+    max-width: 120px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color:white;
+    padding: 27px 18px 18px;
+    border: 1px solid var(--border-color);
+    width: 100%; /* Changed from fit-content to be responsive */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    transition: border-color 0.3s ease;
+    position: relative; /* Needed for offer badges */
+    overflow: hidden;
+}
+
+
+.product-card p{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.product-card h3{
+    text-align: center;
+    margin: 5px auto;
+}
+
+
+/* Main section container */
+.deal-of-the-day {
+    width: 100%;
+    padding: 50px 0;
+    background-color: var(--color-light-yellow, #fef8e1);
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+/* This is the key fix: We use flexbox instead of grid */
+.main-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Left column with text */
+.text-section {
+    flex: 0 0 400px; /* Give it a fixed width */
+    text-align: center;
+}
+.text-section h2 {
+    color: var(--color-brand, #333);
+    font-family: "Playfair Display", serif;
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+.text-section h4 {
+    font-size: 50px;
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    color: var(--color-green, #4CAF50);
+}
+.text-section span {
+    display: block;
+    font-size: 24px;
+    margin: 10px 0;
+}
+.offer p {
+    font-size: 18px;
+    margin: 2px 0;
+}
+.offer .color-green {
+    color: var(--color-green, #4CAF50);
+}
+.order-btn button {
+    background-color: var(--color-green, #4CAF50);
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 14px 30px;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Right column with the slider */
+.product-slider-wrapper {
+    flex: 1; /* This lets the slider take up the rest of the space */
+    min-width: 0; /* A crucial fix for sliders inside flexbox */
+}
+
+/* Spacing for each slide */
+.slide-padding {
+    padding: 0 10px;
+}
+.simple-slider .slick-list {
+    margin: 0 -10px;
+}

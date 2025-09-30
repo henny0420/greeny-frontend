@@ -1,0 +1,31 @@
+.department-section{
+    padding: 30px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2{
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.department-section .slick-prev{
+    right: 150px !important;
+    left: auto !important;
+    top: -40px;
+}
+.department-section .slick-next{
+    right: 90px !important;
+left: auto !important;
+    top: -40px;
+}
+.product-grid-container {
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    gap: 50px 10px;
+}
