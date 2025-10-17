@@ -1,7 +1,7 @@
 // src/utils/mainLayout.jsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/header';
+import Header from '../components/header.jsx';
 import Footer from '../components/footer';
 
 function MainLayout() {
