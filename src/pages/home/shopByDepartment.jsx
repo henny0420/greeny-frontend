@@ -52,7 +52,7 @@ function ShopByDepartment() {
     return (
         <div className="shopby-department">
             <div className="container">
-                <h2>Shop By Department</h2>
+                <h2>Shop By Catagory</h2>
                 
                 <Slider {...settings} className="department-slider">
                     {categories.map(category => (
