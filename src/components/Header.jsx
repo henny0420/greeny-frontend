@@ -119,7 +119,7 @@ function Header() {
               </Link>
               <div className="account">
 
-                <img src={profile} alt="Profile" />
+ <img src={profile} alt="Profile" />
 
                 <div className="account-dropdown">
 
