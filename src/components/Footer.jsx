@@ -52,7 +52,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <footer>
+            <div>
                 <div className="container">
                     <div className="footer-flex">
                         <div className="footer-item1">
@@ -88,7 +88,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-            </footer>
+            </div>
         </>
     );
 }
