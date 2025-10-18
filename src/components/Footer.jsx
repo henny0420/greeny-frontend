@@ -32,7 +32,7 @@ const footerLinks = {
     ]
 };
 
-function Footer() {
+export default function Footer() {
     return (
         <>
             <div className="facilitybar">
@@ -93,4 +93,3 @@ function Footer() {
     );
 }
 
-export default Footer;

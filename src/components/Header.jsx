@@ -5,7 +5,7 @@ const logo = '/assets/logo/Greeny.png';
 const profile = '/assets/logo/profile.svg';
 import { Link, useNavigate } from 'react-router-dom'; 
 // FIX #1: Added useNavigate to the import
-import './header.css';
+import './Header.css';
 
 import { useAuth } from '../context/authContext';
 
