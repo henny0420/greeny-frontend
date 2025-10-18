@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Import your custom CSS which we will create next
-import '../css/home/promoBanners.css';
+import '../css/home/PromoBanners.css';
 
 // We define the static content for the top two cards in an array
 const promoCardsData = [
