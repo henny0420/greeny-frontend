@@ -9,8 +9,7 @@ import './header.css';
 
 import { useAuth } from '../context/authContext';
 
-// FIX #3: Removed the extra, nested function Header() { ... }
-function Header() {
+ function Header() {
   const [categories, setCategories] = useState([]);
   const { isLoggedIn, user, logout } = useAuth();
   const navigate = useNavigate(); // FIX #1 (continued): Call the hook here
@@ -45,7 +44,7 @@ function Header() {
   }, []);
 
   return (
-    <header>
+    <>
       {/* SECTION 1 */}
       <div className="section1">
         <div className="container">
@@ -157,7 +156,7 @@ function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
 
