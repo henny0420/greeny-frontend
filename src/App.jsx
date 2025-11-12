@@ -27,6 +27,10 @@ import './App.css';
 import OffersPage from './pages/offers/offersPage';
 import ContactPage from './pages/contactUs/contactPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import CartPage from './pages/cart/cartPage';
+import CheckoutPage from './pages/cart/checkoutPage';
+import OrderSuccessPage from './pages/cart/orderSuccessPage';
+import AccountPage from './pages/account/AccountPage';
 
 function App() {
   return (
@@ -41,6 +45,10 @@ function App() {
         <Route path="offers" element={<OffersPage/>} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="product/:productId" element={<ProductDetailPage/>} />
+        <Route path="cart" element={<CartPage/>} />
+        <Route path="checkout" element={<CheckoutPage/>} /> {/* 4. Add checkout */}
+          <Route path="order-success/:orderId" element={<OrderSuccessPage/>} /> 
+          <Route path="account" element={<AccountPage/>} />
         
       </Route>
 

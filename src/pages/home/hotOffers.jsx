@@ -10,19 +10,19 @@ const offersData = [
         className: 'one',
         line1: 'Offer',
         line2: 'BUY 1 GET 1',
-        link: '/products?offer_tag=BUY 1 GET 1'
+        link: '/shop?offer_tag=BUY 1 GET 1'
     },
     {
         className: 'two',
         line1: 'Get up to 10% off',
         line2: 'on oil & fats',
-        link: '/products/category/Fats and Oils' // Example link to a category page
+        link: '/shop/category/68c6dedd9f4ef46c67b64cd7' // Example link to a category page
     },
     {
         className: 'three',
         line1: 'Get fresh Breads &',
         line2: 'Bakery items',
-        link: '/products/category/Bakery' // Example link to a category page
+        link: '/shop/category/68c6df109f4ef46c67b64ce6' // Example link to a category page
     }
 ];
 

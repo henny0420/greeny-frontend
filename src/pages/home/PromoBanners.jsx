@@ -10,13 +10,13 @@ const promoCardsData = [
         className: 'card-premium',
         subtitle: 'Exclusive Purchase',
         title: <>Premium & <br />Organic Products</>, // Using a fragment for the <br>
-        link: '/products?collection=is_premium'
+        link: '/shop?collection=is_premium'
     },
     {
         className: 'card-popular',
         subtitle: 'Customer Favorites',
         title: <>Popular Daily <br />Essential Products</>,
-        link: '/products?collection=is_popular'
+        link: '/shop?collection=is_popular'
     }
 ];
 
@@ -44,7 +44,7 @@ function PromoBanners() {
                         <img src="https://demo2.wpopal.com/ecolive/wp-content/uploads/2021/10/h1_img6.jpg" alt="banner-image" />
                         <div className="banner-text">
                             <h2>100% Secure delivery without contacting the courier</h2>
-                            <Link to="/products" className="shop-now-btn">
+                            <Link to="/shop" className="shop-now-btn">
                                 Shop Now <span>&rarr;</span>
                             </Link>
                         </div>

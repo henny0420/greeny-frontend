@@ -38,7 +38,7 @@ function HeroBanner() {
                             <h4>We bring the store</h4>
                             <h5> to your door</h5>
                             <p>Free shipping on all your order. we deliver, you enjoy</p>
-                            <Link to="/products">
+                            <Link to="/shop">
                                 <button>ORDER NOW</button>
                             </Link>
                         </div>
@@ -55,7 +55,7 @@ function HeroBanner() {
                             <h4>Fresh & healthy</h4>
                             <h5>organic food</h5>
                             <span>Save up to 20% off</span>
-                            <Link to="/products">
+                            <Link to="/shop">
                                 <button>ORDER NOW</button>
                             </Link>
                         </div>
@@ -72,7 +72,7 @@ function HeroBanner() {
                             <h4>Fresh Fruits &</h4>
                             <h5>Big Discount</h5>
                             <span>Save up to 50% on your first order</span>
-                            <Link to="/products">
+                            <Link to="/shop">
                                 <button>ORDER NOW</button>
                             </Link>
                         </div>

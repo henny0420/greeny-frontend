@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import '../css/home/shopByDepartment.css';
 
 // Import Slick's CSS (if you haven't already in a main file)
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Import your custom CSS file
@@ -53,16 +53,15 @@ function ShopByDepartment() {
         <div className="shopby-department">
             <div className="container">
                 <h2>Shop By Catagory</h2>
-                
+
                 <Slider {...settings} className="department-slider">
                     {categories.map(category => (
                         // Each item in the map is a direct child of the slider
                         <div key={category._id}>
-                            <Link to={`/products/category/${category.name}`} className="department-link">
-                                <div className="image-box">
-                                    <img src={`/assets/categories/${category.image_url}`} alt={category.name} />
-                                    <span>{category.name}</span>
-                                </div>
+                            <Link to={`/shop/category/${category._id}`} className="department-link">                                <div className="image-box">
+                                <img src={`/assets/categories/${category.image_url}`} alt={category.name} />
+                                <span>{category.name}</span>
+                            </div>
                             </Link>
                         </div>
                     ))}

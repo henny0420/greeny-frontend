@@ -116,15 +116,15 @@ function AddProductPage() {
 
                     <div className="checkbox-group">
                         <input type="checkbox" id="is_featured" name="is_featured" checked={product.is_featured} onChange={handleChange} />
-                        <label htmlFor="is_featured">Featured Product</label>
+                        <label htmlFor="featured">Featured Product</label>
                     </div>
                     <div className="checkbox-group">
                         <input type="checkbox" id="is_popular" name="is_popular" checked={product.is_popular} onChange={handleChange} />
-                        <label htmlFor="is_popular">Popular Product</label>
+                        <label htmlFor="popular">Popular Product</label>
                     </div>
                     <div className="checkbox-group">
                         <input type="checkbox" id="is_premium" name="is_premium" checked={product.is_premium} onChange={handleChange} />
-                        <label htmlFor="is_premium">Premium Product</label>
+                        <label htmlFor="premium">Premium Product</label>
                     </div>
 
                     <label htmlFor="discount_percentage">Discount Percentage:</label>
