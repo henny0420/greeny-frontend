@@ -51,12 +51,38 @@ function ShopPage() {
                 const category = categories.find(c => c._id === categoryId); 
                 setTitle(category ? category.name : "Category");
                 apiUrl = `http://localhost:5000/api/products?category=${categoryId}`;
-            } else if (searchQuery) {
+            } 
+            // else if (searchQuery) {
+            //     setView('filtered');
+            //     const query = new URLSearchParams(searchQuery);
+            //     setTitle(query.get('offer_tag') || `"${query.get('collection')}" Products` || "Search Results");
+            //     apiUrl = `http://localhost:5000/api/products${searchQuery}`;
+            // } 
+            else if (searchQuery) {
                 setView('filtered');
                 const query = new URLSearchParams(searchQuery);
-                setTitle(query.get('offer_tag') || `"${query.get('collection')}" Products` || "Search Results");
+                
+                const collection = query.get('collection');
+                const offerTag = query.get('offer_tag');
+                const deal = query.get('deal'); // check for deal param too
+                const search = query.get('search');
+
+                // Check exactly which parameter exists to set the correct title
+                if (offerTag) {
+                    setTitle(offerTag);
+                } else if (deal) {
+                    setTitle(deal);
+                } else if (collection) {
+                    setTitle(`"${collection.replace('is_', '')}" Products`);
+                } else if (search) {
+                    setTitle(`Search Results for "${search}"`);
+                } else {
+                    setTitle("Shop");
+                }
+
                 apiUrl = `http://localhost:5000/api/products${searchQuery}`;
-            } else {
+            }
+            else {
                 setView('default');
                 setTitle("Shop By Department");
                 apiUrl = 'http://localhost:5000/api/products/by-category';

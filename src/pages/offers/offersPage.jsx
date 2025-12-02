@@ -22,7 +22,7 @@ const offersData = [
         title: 'Festive Season Sale',
         description: 'Huge savings! Get half price on clearance products while stocks last.',
         buttonText: 'Find Bargains',
-        link: '/shop?offer_tag=Festive Season Sale'
+        link: '/shop?offer_tag=festive season sale'
     },
     {
         className: 'card-deal-day',
