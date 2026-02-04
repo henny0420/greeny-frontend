@@ -292,3 +292,55 @@
     border-radius: 5px;
     z-index: 1;
 }
+/* --------------------------- */
+
+.image-prod,
+.product-image-container {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-prod img,
+.product-card img,
+.featured-card img {
+  max-height: 180px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.coupon-banner {
+  position: absolute;
+  bottom: 85px;
+  left: 0;
+  width: 100%;
+}
+.about-product {
+  position: relative;
+}
+
+
+.about-product,
+.product-card,
+.featured-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.button-group-alignment {
+  margin-top: auto;
+}
+
+.about-product:hover {
+  border-color: var(--border-hover-green);
+}
+
+.about-product {
+  border: 1px solid transparent;
+}
+.about-product:hover {
+  border-color: var(--border-hover-green);
+}
