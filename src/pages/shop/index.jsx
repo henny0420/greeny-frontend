@@ -2,16 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
-// FIX #1: Corrected import paths
 import ProductCard from '../../components/productCard';
 import ShopBanner from './shopBanner';
+import '../css/shop/shopPage.css';
 
-// Import Slick's required CSS
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Import the CSS for this page
-import '../css/shop/shopPage.css';
 
 function ShopPage() {
     // FIX #2: Simplified to one state variable for the data
@@ -52,22 +49,16 @@ function ShopPage() {
                 setTitle(category ? category.name : "Category");
                 apiUrl = `${import.meta.env.VITE_API_URL}/api/products?category=${categoryId}`;
             }
-            // else if (searchQuery) {
-            //     setView('filtered');
-            //     const query = new URLSearchParams(searchQuery);
-            //     setTitle(query.get('offer_tag') || `"${query.get('collection')}" Products` || "Search Results");
-            //     apiUrl = `${import.meta.env.VITE_API_URL}/api/products${searchQuery}`;
-            // } 
+          
             else if (searchQuery) {
                 setView('filtered');
                 const query = new URLSearchParams(searchQuery);
 
                 const collection = query.get('collection');
                 const offerTag = query.get('offer_tag');
-                const deal = query.get('deal'); // check for deal param too
+                const deal = query.get('deal'); 
                 const search = query.get('search');
 
-                // Check exactly which parameter exists to set the correct title
                 if (offerTag) {
                     setTitle(offerTag);
                 } else if (deal) {
@@ -99,7 +90,6 @@ function ShopPage() {
             }
         };
 
-        // Only fetch data once categories are loaded (if needed for title) or if it's not a category-specific page
         if (categories.length > 0 || !params.categoryId) {
             fetchPageData();
         }
@@ -124,9 +114,7 @@ function ShopPage() {
         <div className="shop-page">
             <ShopBanner />
             <div className="shop-page-container container">
-                {/* FIX #3: Render based on the 'view' state */}
                 {view === 'default' ? (
-                    // Default View: Sliders for each category
                     pageContent.map(group => (
                         <div key={group._id} className="department-section">
                             <div className="section-header">
@@ -143,7 +131,6 @@ function ShopPage() {
                         </div>
                     ))
                 ) : (
-                    // Filtered View: A simple grid of products
                     <div className="department-section">
                         <div className="section-header"><h2>{title}</h2></div>
                         <div className="product-grid-container">
