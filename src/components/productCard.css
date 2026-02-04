@@ -1,11 +1,11 @@
 /* ================================
    GENERAL & SIMPLE CARD STYLES
    ================================ */
-   .product-card {
+.product-card {
     background-color: white;
     padding: 15px;
     border: 1px solid var(--border-color);
-    width: 100%;
+    /* width: 100%; */
     box-sizing: border-box;
     border-radius: 15px;
     display: flex;
@@ -15,8 +15,9 @@
     overflow: hidden;
     height: 100%;
     min-height: 100%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
 .product-card img {
     height: 120px;
     width: auto;
@@ -26,20 +27,26 @@
     margin: 0 auto 15px;
     transition: transform 0.3s ease;
 }
+
 .product-card p {
     text-align: center;
     margin: 5px auto 0;
 }
+
 .product-card h3 {
     text-align: center;
     margin: 5px auto;
     font-size: 1rem;
 }
-.product-card h3 a, .about-product h5 a {
+
+.product-card h3 a,
+.about-product h5 a {
     text-decoration: none;
     color: inherit;
 }
-.product-card h3 a:hover, .about-product h5 a:hover {
+
+.product-card h3 a:hover,
+.about-product h5 a:hover {
     color: var(--color-yellow);
 }
 
@@ -47,69 +54,88 @@
    DETAILED CARD STYLES (.about-product)
    ================================ */
 .about-product {
-    padding: 27px 18px 18px;
+    padding: 15px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
     background-color: white;
     height: 100%;
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 100%;
+    /* Changed from fixed 320px to fluid */
+    box-sizing: border-box;
 }
+
 .about-product:hover {
     border-color: var(--border-hover-green);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Added hover shadow for better UI */
 }
+
 .about-product .image-prod {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 180px; /* give image container a height */
+    min-height: 180px;
+    /* give image container a height */
 }
+
 .about-product .image-prod img {
     height: 172px;
     max-width: 180px;
     object-fit: cover;
     transition: 0.3s all ease-in-out;
 }
+
 .about-product:hover .image-prod img {
     transform: scale(1.1);
 }
-.about-product .sp1 { /* Category */
+
+.about-product .sp1 {
+    /* Category */
     color: var(--color-grey);
     font-size: 14px;
     display: block;
     margin-bottom: 10px;
 }
-.about-product h5 { /* Product Name */
+
+.about-product h5 {
+    /* Product Name */
     font-size: 17px;
     font-weight: 500;
     margin: 0 0 10px 0;
     line-height: 22px;
-    flex-grow: 1; /* Pushes content below it down */
+    flex-grow: 1;
+    /* Pushes content below it down */
 }
+
 .about-product .rating {
     display: flex;
     align-items: center;
     gap: 0.25rem;
     margin-bottom: 10px;
 }
+
 .rating-star {
     width: 1.25rem;
     height: 1.25rem;
     color: #facc15;
 }
+
 .about-product .image.coupon-banner {
     width: 100%;
     height: auto;
     position: relative;
     margin: 10px 0;
 }
+
 .about-product .image.coupon-banner img {
     width: 100%;
     max-width: none;
     height: 35px;
     margin-left: -18px;
 }
+
 .about-product .coupon-banner .text {
     position: absolute;
     top: 50%;
@@ -120,34 +146,40 @@
     font-weight: 600;
     white-space: nowrap;
 }
-.text .text-span{
+
+.text .text-span {
     font-size: 18px;
     margin-left: -80px;
 }
+
 .about-product .price {
     display: flex;
- 
+
     gap: 10px;
     align-items: baseline;
     margin-bottom: 15px;
 }
-.about-product .price h5{
+
+.about-product .price h5 {
     font-size: 18px;
     width: fit-content;
     flex-grow: 0;
 }
+
 .about-product .price h3 {
     color: var(--color-green);
     font-weight: 600;
     font-size: 1.2rem;
 }
+
 .button-group-alignment {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
 }
-.button-group{
+
+.button-group {
     border-radius: 3px;
     padding: 5px 15px;
     border: 1px solid grey;
@@ -159,6 +191,7 @@
 .button-group:hover {
     border-color: var(--color-green);
 }
+
 .add-to-cart button {
     display: flex;
     align-items: center;
@@ -170,18 +203,22 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.add-to-cart button:hover{
+
+.add-to-cart button:hover {
     background-color: var(--color-green);
 
 }
+
 .add-to-cart button:hover span {
     color: #E5FEF2;
 }
+
 .add-to-cart button span {
     font-size: 14px;
     color: var(--color-green);
     font-weight: 600;
 }
+
 .add-to-cart button svg {
     fill: var(--color-green);
 }
@@ -193,38 +230,45 @@
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
 .featured-card:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
+
 .featured-card .product-image-container {
     background-color: #f0fdf4;
     border-radius: 10px;
     margin-bottom: 1rem;
     padding: 1rem;
 }
+
 .featured-card img {
     width: 100%;
     height: 200px;
     object-fit: contain;
     display: block;
 }
+
 .featured-card h3 {
     font-size: 1.25rem;
     margin: 0.5rem 1rem;
     flex-grow: 1;
 }
+
 .featured-card .price {
     font-size: 1.1rem;
     color: #2e8b57;
     font-weight: bold;
     margin-bottom: 1rem;
 }
+
 .featured-card .price .original-price {
     text-decoration: line-through;
     color: #888;
     font-weight: normal;
     margin-right: 0.5rem;
 }
+
 .featured-card .btn-add {
     background-color: var(--color-green);
     color: #fff;
@@ -235,6 +279,7 @@
     font-weight: bold;
     margin: 0 1.5rem 1.5rem;
 }
+
 .featured-card .sale-badge {
     position: absolute;
     top: 10px;

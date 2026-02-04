@@ -135,7 +135,7 @@ function ShopPage() {
                             </div>
                             <Slider {...sliderSettings} infinite={group.products.length > 4}>
                                 {group.products.map(product => (
-                                    <div key={product._id} style={{ padding: '0 10px' }}>
+                                    <div key={product._id} className="product-slide-padding">
                                         <ProductCard product={product} type="detailed" />
                                     </div>
                                 ))}
