@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './css/addProductPage.css'; // You can create a CSS file for custom styles
-
+import './css/addProductPage.css';
 
 function AddProductPage() {
-    // State for all form fields
     const [product, setProduct] = useState({
         name: '',
         description: '',
         imageUrl: '',
-        category: '', // This will hold the selected category ID
+        category: '',
         price: 0,
         rating: 0,
         is_featured: false,
@@ -19,16 +17,15 @@ function AddProductPage() {
         offer_tag: ''
     });
 
-    const [categories, setCategories] = useState([]); 
+    const [categories, setCategories] = useState([]);
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
-    // !!!!! THIS IS THE MISSING PIECE !!!!!
-    // This useEffect fetches the categories from your API when the page loads
+
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/categories');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`);
                 const data = await response.json();
                 setCategories(data);
                 // Set a default selected category if they exist
@@ -54,16 +51,16 @@ function AddProductPage() {
         e.preventDefault();
         setMessage('');
         try {
-            const response = await fetch('http://localhost:5000/api/products', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(product),
             });
-            
+
             if (response.ok) {
                 setMessage('New product added successfully!');
                 setTimeout(() => {
-                    navigate('/admin/products'); 
+                    navigate('/admin/products');
                 }, 1500);
             } else {
                 const errorData = await response.json();
@@ -78,7 +75,7 @@ function AddProductPage() {
         <main className="admin-main-content">
             <div className="container-add_product">
                 <h2>Add New Product</h2>
-                
+
                 {message && (
                     <div className="message-box">
                         <p>{message}</p>
@@ -104,10 +101,10 @@ function AddProductPage() {
                         {categories.map(cat => (
                             <option key={cat._id} value={cat._id}>{cat.name}</option>
                         ))}
-                    </select>                    
+                    </select>
                     <label htmlFor="price">Regular Price:</label>
                     <input type="number" id="price" name="price" value={product.price} onChange={handleChange} step="0.01" required />
-                    
+
                     <label htmlFor="rating">Rating (1-5):</label>
                     <input type="number" id="rating" name="rating" value={product.rating} onChange={handleChange} step="0.1" min="0" max="5" />
 

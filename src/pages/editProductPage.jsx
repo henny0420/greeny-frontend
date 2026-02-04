@@ -4,7 +4,7 @@ import './css/editProductPage.css';
 
 function EditProductPage() {
     // useParams gets the ':id' from the URL
-    const { id } = useParams(); 
+    const { id } = useParams();
     const navigate = useNavigate();
 
     const [product, setProduct] = useState(null);
@@ -15,7 +15,7 @@ function EditProductPage() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/products/${id}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`);
                 if (!response.ok) {
                     throw new Error('Product not found');
                 }
@@ -44,7 +44,7 @@ function EditProductPage() {
         e.preventDefault();
         setMessage('');
         try {
-            const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(product),
@@ -79,12 +79,12 @@ function EditProductPage() {
 
                 <label htmlFor="price">Regular Price:</label>
                 <input type="number" id="price" name="price" step="0.01" value={product.price} onChange={handleChange} required />
-                
+
                 {/* Note: In a real app, you'd add all the other fields here too (description, category, etc.) */}
                 {/* For this example, we'll just keep it to these fields. */}
                 <label htmlFor="imageUrl">Image URL:</label>
                 <input type="text" id="imageUrl" name="imageUrl" value={product.imageUrl} onChange={handleChange} required />
-                
+
                 <label htmlFor="category">Category:</label>
                 <input type="text" id="category" name="category" value={product.category} onChange={handleChange} required />
 

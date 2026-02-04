@@ -3,13 +3,13 @@ const instagram = '/assets/logo/instagram.png';
 const facebook = '/assets/logo/facebook.png';
 const logo = '/assets/logo/Greeny.png';
 const profile = '/assets/logo/profile.svg';
-import { Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';
 // FIX #1: Added useNavigate to the import
 import './Header.css';
 
 import { useAuth } from '../context/authContext';
 
- function Header() {
+function Header() {
   const [categories, setCategories] = useState([]);
   const { isLoggedIn, user, logout } = useAuth();
   const navigate = useNavigate(); // FIX #1 (continued): Call the hook here
@@ -24,15 +24,15 @@ import { useAuth } from '../context/authContext';
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-        // This creates the correct URL, e.g., /shop?search=tomato
-        navigate(`/shop?search=${searchTerm}`); 
+      // This creates the correct URL, e.g., /shop?search=tomato
+      navigate(`/shop?search=${searchTerm}`);
     }
-};
+  };
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/categories');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`);
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         setCategories(data);
@@ -61,9 +61,9 @@ import { useAuth } from '../context/authContext';
               <div className="round"><img src={facebook} alt="Facebook" /></div>
               {isLoggedIn ? (
                 <>
-                   <Link to="/account" style={{ color: 'inherit', textDecoration: 'none' }}><h6>Hello, {user?.name}</h6></Link>
-                   <div className="verticle-line"></div>
-                   <a onClick={handleLogout} style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}><h6>SIGN OUT</h6></a>
+                  <Link to="/account" style={{ color: 'inherit', textDecoration: 'none' }}><h6>Hello, {user?.name}</h6></Link>
+                  <div className="verticle-line"></div>
+                  <a onClick={handleLogout} style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}><h6>SIGN OUT</h6></a>
                 </>
               ) : (
                 <>
@@ -92,13 +92,13 @@ import { useAuth } from '../context/authContext';
                 </select>
                 <div className="verticle-line"></div>
                 <div className="search">
-                  <input 
-                  type="text" 
-                  name="query" 
-                  placeholder="Search products..."
-                   value={searchTerm}
-                   onChange={(e) => setSearchTerm(e.target.value)}
-                   required  />
+                  <input
+                    type="text"
+                    name="query"
+                    placeholder="Search products..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    required />
                   <button type="submit" className="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg>
                   </button>
@@ -118,7 +118,7 @@ import { useAuth } from '../context/authContext';
               </Link>
               <div className="account">
 
- <img src={profile} alt="Profile" />
+                <img src={profile} alt="Profile" />
 
                 <div className="account-dropdown">
 

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import ProductCard from '../../components/productCard';
 
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../css/home/productSection.css'; 
+import '../css/home/productSection.css';
 
 // The component no longer needs the 'isSlider' prop
 function ProductSection({ title, subtitle, type }) {
@@ -14,7 +14,7 @@ function ProductSection({ title, subtitle, type }) {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/products/collection?type=${type}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/collection?type=${type}`);
                 const data = await response.json();
                 setProducts(data);
             } catch (error) {
@@ -38,7 +38,7 @@ function ProductSection({ title, subtitle, type }) {
             { breakpoint: 480, settings: { slidesToShow: 1 } }
         ]
     };
-    
+
     const cardType = type === 'featured' ? 'featured' : 'detailed';
 
     return (
@@ -48,8 +48,8 @@ function ProductSection({ title, subtitle, type }) {
                 <div className="section-header">
                     <h2 className="title">{title}</h2>
                 </div>
-                
-                
+
+
                 {products.length > 0 ? (
                     <Slider {...sliderSettings}>
                         {products.map(product => (

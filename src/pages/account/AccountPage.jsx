@@ -3,7 +3,7 @@ import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
 // Import the CSS for this page
-import '../css/account/account.css'; 
+import '../css/account/account.css';
 
 function AccountPage() {
     const { user, logout } = useAuth(); // Get user and logout function from context
@@ -20,11 +20,11 @@ function AccountPage() {
     // Fetch the user's order history when the 'orders' tab is clicked
     useEffect(() => {
         // This check ensures 'user' is not null before trying to read 'user._id'
-if (activePage === 'orders' && user) {
+        if (activePage === 'orders' && user) {
             const fetchOrders = async () => {
                 try {
                     // We'll need a new backend endpoint for this
-                    const response = await fetch(`http://localhost:5000/api/orders/my-orders/${user._id}`);
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/my-orders/${user._id}`);
                     if (response.ok) {
                         const data = await response.json();
                         setOrders(data);

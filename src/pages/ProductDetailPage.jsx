@@ -3,11 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
 // Import the CSS for this page
-import './css/ProductDetailPage.css'; 
+import './css/ProductDetailPage.css';
 
 function ProductDetailPage() {
     // useParams gets the dynamic part of the URL (the ID)
-    const { productId } = useParams(); 
+    const { productId } = useParams();
     const { addToCart } = useAuth();
 
     const [product, setProduct] = useState(null);
@@ -18,7 +18,7 @@ function ProductDetailPage() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${productId}`);
                 if (!response.ok) {
                     throw new Error('Product not found');
                 }
@@ -58,7 +58,7 @@ function ProductDetailPage() {
                     </div>
 
                     <h1 className="product-name">{product.name}</h1>
-                    
+
                     {product.description && <p className="product-description">{product.description}</p>}
 
                     <div className="pricing-section">
@@ -86,9 +86,9 @@ function ProductDetailPage() {
                             <input type="text" value={quantity} className="quantity-input" readOnly />
                             <button onClick={() => setQuantity(q => q + 1)} className="quantity-btn">+</button>
                         </div>
-                        
+
                         <button className="add-to-cart-btn" onClick={() => addToCart(product, quantity)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg>
                             <span>Add to Cart</span>
                         </button>
                     </div>

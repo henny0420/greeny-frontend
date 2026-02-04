@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import ProductCard from '../../components/productCard'; // We will use our reusable card
 
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../css/home/dealOfTheDay.css'; // This will use the new CSS below
 
@@ -14,7 +14,7 @@ function DealOfTheDay() {
     useEffect(() => {
         const fetchDealProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/products/offer/Deal of the Day');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/offer/Deal of the Day`);
                 const data = await response.json();
                 setDealProducts(data);
             } catch (error) {

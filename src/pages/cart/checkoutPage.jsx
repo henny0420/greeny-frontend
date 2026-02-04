@@ -27,7 +27,7 @@ function CheckoutPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         const orderData = {
             userId: user._id,
             cartItems: cart,
@@ -41,7 +41,7 @@ function CheckoutPage() {
 
         try {
             // Send the new order to our backend API
-            const response = await fetch('http://localhost:5000/api/orders', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData),
@@ -70,8 +70,8 @@ function CheckoutPage() {
             <div className="text-center mb-8">
                 <h1 className="text-4xl font-bold">Checkout</h1>
                 <p className="text-gray-500 mt-2">
-                    <Link to="/">Home</Link> / 
-                    <Link to="/cart">Shopping Cart</Link> / 
+                    <Link to="/">Home</Link> /
+                    <Link to="/cart">Shopping Cart</Link> /
                     <span className="text-gray-400">Checkout</span>
                 </p>
             </div>
@@ -108,7 +108,7 @@ function CheckoutPage() {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="card-box">
                             <h2 className="text-xl font-semibold mb-4">Select Payment Method</h2>
                             <div className="space-y-4">

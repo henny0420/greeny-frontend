@@ -16,7 +16,7 @@ function ShopByDepartment() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/categories');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`);
                 const data = await response.json();
                 setCategories(data);
             } catch (error) {

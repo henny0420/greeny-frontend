@@ -18,7 +18,7 @@ function LoginPage() {
         setErrorMessage('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/users/login', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
@@ -28,7 +28,7 @@ function LoginPage() {
 
             if (response.ok) {
                 // 3. Save the user data to our global context!
-                login(data); 
+                login(data);
 
                 // Redirect based on role
                 if (data.role === 'admin') {
@@ -48,7 +48,7 @@ function LoginPage() {
     return (
         <div className="container-register">
             <h2>Log In</h2>
-            
+
             {errorMessage && (
                 <div className="message-box">
                     <p>{errorMessage}</p>
@@ -65,7 +65,7 @@ function LoginPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                
+
                 <label htmlFor="password">Password:</label>
                 <input
                     type="password"
@@ -75,7 +75,7 @@ function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                
+
                 <button type="submit" className="submit-btn">Log In</button>
             </form>
             <p style={{ textAlign: 'center', marginTop: '20px' }}>

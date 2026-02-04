@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // You can create a register.css file and import it here
-import './css/register.css'; 
+import './css/register.css';
 
 function Register() {
     // These states replace the PHP variables $name, $email, $password
@@ -18,7 +18,7 @@ function Register() {
         setMessage(''); // Clear previous messages
 
         try {
-            const response = await fetch('http://localhost:5000/api/users/register', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password }), // We send the name here
@@ -40,7 +40,7 @@ function Register() {
         // This JSX is a direct conversion of your HTML body
         <div className="container-register">
             <h2>Sign Up</h2>
-            
+
             {/* This replaces your `if (!empty($message))` block */}
             {message && (
                 <div className="message-box">

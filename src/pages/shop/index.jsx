@@ -7,7 +7,7 @@ import ProductCard from '../../components/productCard';
 import ShopBanner from './shopBanner';
 
 // Import Slick's required CSS
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Import the CSS for this page
@@ -28,7 +28,7 @@ function ShopPage() {
     useEffect(() => {
         const fetchAllCategories = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/categories');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`);
                 const data = await response.json();
                 setCategories(data);
             } catch (error) {
@@ -42,26 +42,26 @@ function ShopPage() {
     useEffect(() => {
         const fetchPageData = async () => {
             setLoading(true);
-            const categoryId = params.categoryId; 
+            const categoryId = params.categoryId;
             const searchQuery = location.search;
             let apiUrl = '';
-            
+
             if (categoryId) {
                 setView('filtered');
-                const category = categories.find(c => c._id === categoryId); 
+                const category = categories.find(c => c._id === categoryId);
                 setTitle(category ? category.name : "Category");
-                apiUrl = `http://localhost:5000/api/products?category=${categoryId}`;
-            } 
+                apiUrl = `${import.meta.env.VITE_API_URL}/api/products?category=${categoryId}`;
+            }
             // else if (searchQuery) {
             //     setView('filtered');
             //     const query = new URLSearchParams(searchQuery);
             //     setTitle(query.get('offer_tag') || `"${query.get('collection')}" Products` || "Search Results");
-            //     apiUrl = `http://localhost:5000/api/products${searchQuery}`;
+            //     apiUrl = `${import.meta.env.VITE_API_URL}/api/products${searchQuery}`;
             // } 
             else if (searchQuery) {
                 setView('filtered');
                 const query = new URLSearchParams(searchQuery);
-                
+
                 const collection = query.get('collection');
                 const offerTag = query.get('offer_tag');
                 const deal = query.get('deal'); // check for deal param too
@@ -80,12 +80,12 @@ function ShopPage() {
                     setTitle("Shop");
                 }
 
-                apiUrl = `http://localhost:5000/api/products${searchQuery}`;
+                apiUrl = `${import.meta.env.VITE_API_URL}/api/products${searchQuery}`;
             }
             else {
                 setView('default');
                 setTitle("Shop By Department");
-                apiUrl = 'http://localhost:5000/api/products/by-category';
+                apiUrl = `${import.meta.env.VITE_API_URL}/api/products/by-category`;
             }
 
             try {
@@ -98,7 +98,7 @@ function ShopPage() {
                 setLoading(false);
             }
         };
-        
+
         // Only fetch data once categories are loaded (if needed for title) or if it's not a category-specific page
         if (categories.length > 0 || !params.categoryId) {
             fetchPageData();
@@ -106,10 +106,10 @@ function ShopPage() {
     }, [location.search, params.categoryId, categories]);
 
     const sliderSettings = {
-        dots: false, 
-        infinite: false, 
-        speed: 500, 
-        slidesToShow: 4, 
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
         slidesToScroll: 1,
         responsive: [
             { breakpoint: 1024, settings: { slidesToShow: 3 } },
@@ -117,7 +117,7 @@ function ShopPage() {
             { breakpoint: 480, settings: { slidesToShow: 1 } }
         ]
     };
-    
+
     if (loading) return <div className="container"><h2>Loading...</h2></div>;
 
     return (
@@ -128,19 +128,19 @@ function ShopPage() {
                 {view === 'default' ? (
                     // Default View: Sliders for each category
                     pageContent.map(group => (
-                       <div key={group._id} className="department-section">
-                           <div className="section-header">
+                        <div key={group._id} className="department-section">
+                            <div className="section-header">
                                 <h2>{group.category}</h2>
                                 <Link to={`/shop/category/${group._id}`} className="view-all-link">View All &rarr;</Link>
-                           </div>
-                           <Slider {...sliderSettings} infinite={group.products.length > 4}>
-                               {group.products.map(product => (
-                                   <div key={product._id} style={{ padding: '0 10px' }}>
-                                       <ProductCard product={product} type="detailed" />
-                                   </div>
-                               ))}
-                           </Slider>
-                       </div>
+                            </div>
+                            <Slider {...sliderSettings} infinite={group.products.length > 4}>
+                                {group.products.map(product => (
+                                    <div key={product._id} style={{ padding: '0 10px' }}>
+                                        <ProductCard product={product} type="detailed" />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
                     ))
                 ) : (
                     // Filtered View: A simple grid of products
