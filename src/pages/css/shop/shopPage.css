@@ -26,43 +26,13 @@
     top: -40px;
 }
 
-/* .product-grid-container {
+.product-grid-container {
     display: grid;
     grid-template-columns:repeat(4,1fr);
     gap: 50px 10px;
-} */
-/* For Slick sections ONLY */
-.slick-track {
-  display: flex !important;
-}
-.slick-slide {
-  height: auto;
-}
-
-/* For Grid sections ONLY */
-.product-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 30px;
 }
 
 .product-slide-padding {
     padding: 0 15px;
     box-sizing: border-box;
-}
-
-@media (max-width: 1200px) {
-  .product-grid-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 768px) {
-  .product-grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 480px) {
-  .product-grid-container {
-    grid-template-columns: 1fr;
-  }
 }

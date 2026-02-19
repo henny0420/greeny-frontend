@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './css/manageProductsPage.css'; // You can create this file for styling
+import './css/manageProductsPage.css';
 
 function ManageProductsPage() {
     const [products, setProducts] = useState([]);
     const [message, setMessage] = useState('');
 
-    // Function to fetch all products
     const fetchProducts = async () => {
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`);
@@ -19,14 +18,11 @@ function ManageProductsPage() {
         }
     };
 
-    // Fetch products when the component mounts
     useEffect(() => {
         fetchProducts();
     }, []);
 
-    // Function to handle deleting a product
     const handleDelete = async (productId) => {
-        // Show a confirmation dialog before deleting
         if (window.confirm('Are you sure you want to delete this product?')) {
             try {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${productId}`, {
@@ -35,7 +31,6 @@ function ManageProductsPage() {
 
                 if (response.ok) {
                     setMessage('Product deleted successfully!');
-                    // Refresh the product list after deletion
                     fetchProducts();
                 } else {
                     setMessage('Failed to delete product.');
@@ -71,7 +66,6 @@ function ManageProductsPage() {
                                     <td>{product.name}</td>
                                     <td>{(product.final_price || product.price).toFixed(2)} Rs.</td>
                                     <td className="action-links">
-                                        {/* Link to the edit page which we will create next */}
                                         <Link to={`/admin/edit-product/${product._id}`} className="edit">Edit</Link>
                                         <button onClick={() => handleDelete(product._id)} className="delete">Delete</button>
                                     </td>

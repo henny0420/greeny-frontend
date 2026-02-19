@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './css/adminDashboard.css'; // You can create and import a CSS file
+import './css/adminDashboard.css';
 
 function AdminDashboard() {
     const [stats, setStats] = useState(null);

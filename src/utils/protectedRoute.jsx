@@ -6,9 +6,9 @@ function ProtectedRoute() {
     const { isLoggedIn } = useAuth();
 
     if (isLoggedIn) {
-        return <Outlet />; // If logged in, show the page they want
+        return <Outlet />; 
     } else {
-        return <Navigate to="/login" replace />; // If not, redirect to login
+        return <Navigate to="/login" replace />; 
     }
 }
 

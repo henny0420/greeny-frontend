@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../css/home/productSection.css';
 
-// The component no longer needs the 'isSlider' prop
 function ProductSection({ title, subtitle, type }) {
     const [products, setProducts] = useState([]);
 

@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
-// Import the CSS for this page
 import './css/ProductDetailPage.css';
 
 function ProductDetailPage() {
-    // useParams gets the dynamic part of the URL (the ID)
     const { productId } = useParams();
     const { addToCart } = useAuth();
 
@@ -31,7 +29,7 @@ function ProductDetailPage() {
             }
         };
         fetchProduct();
-    }, [productId]); // Re-run this effect if the productId in the URL changes
+    }, [productId]);
 
     if (loading) return <div className="container"><h2>Loading...</h2></div>;
     if (error) return <div className="container"><h2>{error}</h2></div>;
@@ -40,14 +38,12 @@ function ProductDetailPage() {
     return (
         <main className="container-product-details">
             <div className="product-container">
-                {/* Product Image Section */}
                 <div className="product-image-section">
                     <div className="product-image">
                         <img src={product.imageUrl} alt={product.name} />
                     </div>
                 </div>
 
-                {/* Product Information Section */}
                 <div className="product-info-section">
                     <div className="product-header">
                         <span className="category-tag">{product.category?.name || 'General'}</span>

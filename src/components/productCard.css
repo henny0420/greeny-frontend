@@ -293,7 +293,7 @@
     z-index: 1;
 }
 /* --------------------------- */
-
+/* 
 .image-prod,
 .product-image-container {
   height: 200px;
@@ -343,4 +343,4 @@
 }
 .about-product:hover {
   border-color: var(--border-hover-green);
-}
+} */

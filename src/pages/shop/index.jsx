@@ -9,9 +9,7 @@ import '../css/shop/shopPage.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 function ShopPage() {
-    // FIX #2: Simplified to one state variable for the data
     const [pageContent, setPageContent] = useState([]);
     const [view, setView] = useState('default');
     const [title, setTitle] = useState("Shop");
@@ -21,7 +19,6 @@ function ShopPage() {
     const location = useLocation();
     const params = useParams();
 
-    // Effect to fetch all categories (used for getting titles)
     useEffect(() => {
         const fetchAllCategories = async () => {
             try {
@@ -35,7 +32,6 @@ function ShopPage() {
         fetchAllCategories();
     }, []);
 
-    // Main effect to fetch page content based on the URL
     useEffect(() => {
         const fetchPageData = async () => {
             setLoading(true);
@@ -49,14 +45,13 @@ function ShopPage() {
                 setTitle(category ? category.name : "Category");
                 apiUrl = `${import.meta.env.VITE_API_URL}/api/products?category=${categoryId}`;
             }
-          
             else if (searchQuery) {
                 setView('filtered');
                 const query = new URLSearchParams(searchQuery);
 
                 const collection = query.get('collection');
                 const offerTag = query.get('offer_tag');
-                const deal = query.get('deal'); 
+                const deal = query.get('deal');
                 const search = query.get('search');
 
                 if (offerTag) {

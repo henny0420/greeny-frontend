@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './css/viewCustomersPage.css'; // You can create this file for styling
+import './css/viewCustomersPage.css';
 
 function ViewCustomersPage() {
     const [customers, setCustomers] = useState([]);
@@ -9,7 +9,6 @@ function ViewCustomersPage() {
     useEffect(() => {
         const fetchCustomers = async () => {
             try {
-                // Fetching from the new endpoint we just created
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users`);
                 if (!response.ok) throw new Error('Failed to fetch customers');
                 const data = await response.json();
@@ -48,7 +47,6 @@ function ViewCustomersPage() {
                                     <td data-label="Name">{customer.name}</td>
                                     <td data-label="Email">{customer.email}</td>
                                     <td data-label="Action">
-                                        {/* This link will eventually go to a customer detail page */}
                                         <Link to={`/admin/customers/${customer._id}`} className="action-btn">View History</Link>
                                     </td>
                                 </tr>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Import the CSS for this page
 import '../css/contactUs/contactUs.css'; 
 
 const contactInfo = [
@@ -12,7 +11,7 @@ const contactInfo = [
 function ContactPage() {
     const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
     const [error, setError] = useState('');
-    const [isSent, setIsSent] = useState(false); // This replaces your $message_sent flag
+    const [isSent, setIsSent] = useState(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,18 +20,15 @@ function ContactPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setError('');
-        // This is the same validation logic from your PHP file
         if (!formData.name || !formData.email || !formData.subject || !formData.message) {
             setError("Please fill in all required fields.");
             return;
         }
-        // A simple email format check
         if (!/\S+@\S+\.\S+/.test(formData.email)) {
             setError("Please enter a valid email address.");
             return;
         }
         
-        // If validation passes, show the success message
         console.log("Form data submitted:", formData);
         setIsSent(true);
     };

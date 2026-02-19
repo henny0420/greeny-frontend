@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import '../css/cart/cart.css';
 
-// Import the CSS for this page
-
 function CartPage() {
-    // Get all the cart data and functions from our global context
     const { cart, removeFromCart, updateQuantity, itemCount, cartTotal } = useAuth();
 
     return (

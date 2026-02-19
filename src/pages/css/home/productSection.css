@@ -35,19 +35,16 @@
     box-sizing: border-box;
 }
 
-/* Ensure the slider container has no extra space */
 .featured-products-container .slick-list {
     margin: 0 -10px;
     padding: 10px 0 20px !important;
 }
 
-/* Fix for the slider track */
 .featured-products-container .slick-track {
     display: flex;
     align-items: stretch;
 }
 
-/* Ensure all slides have the same height */
 .featured-products-container .slick-slide > div {
     height: 100%;
 }

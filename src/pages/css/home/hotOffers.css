@@ -5,7 +5,6 @@
     color: var(--color-green);
     font-size: 40px;
     text-align: left;
-    /* font-family: "Playfair Display", Sans-serif; */
 }
 
 .offer-grid{
@@ -61,7 +60,6 @@
 }
 
 .two h4{
-    /* max-width: px; */
     font-size: 28px;
     font-family: "Playfair Display", Sans-serif;
     color: var(--color-brand);

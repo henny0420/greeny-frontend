@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import '../css/home/shopByDepartment.css';
 
-// Import Slick's CSS (if you haven't already in a main file)
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Import your custom CSS file
 import '../css/home/shopByDepartment.css';
 
 function ShopByDepartment() {
@@ -26,7 +24,6 @@ function ShopByDepartment() {
         fetchCategories();
     }, []);
 
-    // Settings for the Slick Slider
     const settings = {
         dots: false,
         infinite: false,
@@ -56,7 +53,6 @@ function ShopByDepartment() {
 
                 <Slider {...settings} className="department-slider">
                     {categories.map(category => (
-                        // Each item in the map is a direct child of the slider
                         <div key={category._id}>
                             <Link to={`/shop/category/${category._id}`} className="department-link">                                <div className="image-box">
                                 <img src={`/assets/categories/${category.image_url}`} alt={category.name} />

@@ -1,19 +1,15 @@
 
-    /* --- Google Font Import --- */
-
-    /* --- Main Container for the Cards --- */
     .product-section-container {
         display: grid;
         grid-template-columns: 650px 1fr;
         gap: 2rem;
         width: 100%;
         max-width: 1200px;
-        margin: 4rem auto; /* Added margin for spacing */
+        margin: 4rem auto;
         
         justify-content: center;
     }
 
-    /* --- General Card Styles --- */
     .product-section-container .product-card {
         border-radius: 16px;
         padding: 2.5rem;
@@ -29,10 +25,9 @@
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
     }
 
-    /* --- Specific Card Colors & Layout --- */
     .card-premium {
-        background-color: #c8f7e1; /* Light mint green */
-        flex: 13; /* This card takes up ~65% of the space */
+        background-color: #c8f7e1;
+        flex: 13;
         background-image: url('/assets/images/primium-image.png');
         background-position: right;  
         background-size: 350px;
@@ -40,14 +35,13 @@
 
     }
     .card-popular {
-        background-color: var(--color-light-yellow); /* Light sandy yellow */
-        flex: 7; /* This card takes up ~35% of the space */
+        background-color: var(--color-light-yellow);
+        flex: 7;
         background-image: url('https://demo2.wpopal.com/ecolive/wp-content/uploads/2021/10/h1_img2.jpg');
         background-position:center;
         background-size: cover;
     }
 
-    /* --- Text Styling inside the Cards --- */
     .card-subtitle {
         font-size: 0.9rem;
         font-weight: 600;
@@ -75,9 +69,8 @@
         margin: 0 0 1.5rem 0;
     }
 
-    /* --- Shop Now Button Styles --- */
     .shop-now-btn {
-        background-color: #28a745; /* Vibrant green */
+        background-color: #28a745;
         color: #ffffff;
         font-size: 1rem;
         font-weight: 600;
@@ -97,29 +90,20 @@
 
   
 
-
-    /*
-    ================================
-    THE BANNER FIX
-    ================================
-    */
-    /* This rule is now very specific to avoid conflicts */
     .banner-container .banner-delivery {
-        position: relative; /* THIS IS THE KEY: Creates the positioning anchor */
+        position: relative;
         width: 100%;
         margin:  0 0 40px 0;
         border-radius: 20px;
-        overflow: hidden; /* Ensures the image corners are rounded */
+        overflow: hidden;
     }
     .banner-container .banner-delivery img {
         width: 100%;
-        display: block; /* Removes extra space under the image */
+        display: block;
     }
-    /* The text is positioned absolutely INSIDE the relative parent */
     .banner-container .banner-text {
         position: absolute;
         top: 50%;
-        /* left: 50%; */
         transform: translateY(-50%);
         text-align: center;
         display: flex;
@@ -139,7 +123,6 @@
 
     }
 
-  /* --- Media Query for Responsiveness --- */
   @media (max-width: 768px) {
     .product-section-container {
         flex-direction: column;

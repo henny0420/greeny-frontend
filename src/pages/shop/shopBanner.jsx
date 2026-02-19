@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/shop/shopBanner.css';
-// We will create this CSS file next
-// import './shopBanner.css'; 
 
 function ShopBanner() {
     return (
         <div className="herobanner-products">
-            {/* Make sure this image is in your public/assets/images/ folder */}
             <img src="/assets/images/hbanner-2.webp" alt="herobanner" />
 
             <div className="hbanner-for-products-text">

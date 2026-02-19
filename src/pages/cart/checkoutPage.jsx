@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 
-// Import the CSS for this page
 import '../css/cart/checkout.css';
-
 
 function CheckoutPage() {
     const { user, cart, itemCount, cartTotal, clearCart } = useAuth();
     const navigate = useNavigate();
 
-    // State for the form inputs
     const [formData, setFormData] = useState({
         fullName: '',
         address: '',
@@ -33,14 +30,12 @@ function CheckoutPage() {
             cartItems: cart,
             shippingAddress: {
                 fullName: formData.fullName,
-                address: formData.address,
-                // We can add city, state, etc. later
+                address: formData.address
             },
             paymentMethod: formData.paymentMethod
         };
 
         try {
-            // Send the new order to our backend API
             const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -49,8 +44,8 @@ function CheckoutPage() {
 
             if (response.ok) {
                 const newOrder = await response.json();
-                clearCart(); // Clear the cart from context
-                navigate(`/order-success/${newOrder._id}`); // Redirect to success page
+                clearCart();
+                navigate(`/order-success/${newOrder._id}`);
             } else {
                 alert('Failed to place order. Please try again.');
             }
@@ -59,11 +54,6 @@ function CheckoutPage() {
             alert('An error occurred. Please try again.');
         }
     };
-
-    // If cart is empty, redirect to shop
-    // if (cart.length === 0) {
-    //     return <Navigate to="/shop" replace />;
-    // }
 
     return (
         <main className="container-ch">
@@ -136,7 +126,6 @@ function CheckoutPage() {
                                     <span>Sub Total:</span>
                                     <span>{cartTotal.toFixed(2)} Rs.</span>
                                 </div>
-                                {/* Add shipping/tax logic here later if needed */}
                                 <div className="border-t mt-4 summary-item total-summary">
                                     <span>Total</span>
                                     <span className="text-green-600">{cartTotal.toFixed(2)} Rs.</span>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './css/orderDetailsPage.css'; // You can create this for custom styles
+import './css/orderDetailsPage.css';
 
 function OrderDetailsPage() {
-    const { id } = useParams(); // Get the order ID from the URL
+    const { id } = useParams();
     const [order, setOrder] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -26,7 +26,6 @@ function OrderDetailsPage() {
     if (loading) return <div>Loading order details...</div>;
     if (!order) return <div>Order not found.</div>;
 
-    // Helper to format date
     const formatDate = (dateString) => {
         return new Date(dateString).toLocaleString('en-US', {
             year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
@@ -44,7 +43,6 @@ function OrderDetailsPage() {
                         <h2>Customer Information</h2>
                         <p><strong>Name:</strong> {order.user.name}</p>
                         <p><strong>Email:</strong> {order.user.email}</p>
-                        {/* We will add address to the order model later */}
                         <p><strong>Shipping Address:</strong><br />123 Greeny Lane, Foodville</p>
                     </div>
 
@@ -72,7 +70,6 @@ function OrderDetailsPage() {
                                 <tr key={item._id}>
                                     <td>{item.product?.name || 'Product not found'}</td>
                                     <td>{item.quantity}</td>
-                                    {/* We will add price_at_time_of_purchase later */}
                                     <td>{(item.product?.price || 0).toFixed(2)} Rs.</td>
                                     <td>{(item.quantity * (item.product?.price || 0)).toFixed(2)} Rs.</td>
                                 </tr>

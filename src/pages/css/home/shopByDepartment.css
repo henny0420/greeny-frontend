@@ -12,7 +12,6 @@
     font-family: "Work Sans", sans-serif;
 }
 
-/* Your card styles remain the same */
 .image-box {
     width: 140px;
     height: 170px;
@@ -21,7 +20,7 @@
     border-radius: 5px;
     box-shadow: 0 0 15px hsla(0, 0%, 51%, .16);
     text-align: center;
-    margin: 10px auto; /* Use auto margin to center within slide */
+    margin: 10px auto;
     background-color: white;
 }
 .image-box:hover {
@@ -45,16 +44,9 @@ a.department-link {
     text-decoration: none;
 }
 
-/*
-================================
-Slick.js Custom Arrow Styles
-================================
-*/
-
-/* Positioning the arrows */
 .slick-prev,
 .slick-next {
-    top: -25px; /* Position them next to the title */
+    top: -25px;
     width: 45px;
     height: 45px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -64,18 +56,17 @@ Slick.js Custom Arrow Styles
 }
 
 .slick-prev {
-    right: 120px !important; /* Use !important to override default styles */
+    right: 120px !important;
     left: auto !important;
 }
 .slick-next {
     right: 60px !important;
 }
 
-/* Styling the arrow icons inside the buttons */
 .slick-prev:before,
 .slick-next:before {
-    font-size: 20px; /* Adjust arrow size */
-    color: var(--color-black); /* Your theme color */
+    font-size: 20px;
+    color: var(--color-black);
 }
 
 .slick-prev:hover,

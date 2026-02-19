@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import ProductCard from '../../components/productCard'; // We will use our reusable card
+import ProductCard from '../../components/productCard';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../css/home/dealOfTheDay.css'; // This will use the new CSS below
+import '../css/home/dealOfTheDay.css'; 
 
 function DealOfTheDay() {
     const [dealProducts, setDealProducts] = useState([]);
@@ -37,7 +37,6 @@ function DealOfTheDay() {
             <div className="container">
                 <h2>Deal of the day</h2>
                 <div className="main-flex">
-                    {/* Left Column: Text Content */}
                     <div className="text-section">
                         <h4>Up To 30% OFF</h4>
                         <span>On the selected products</span>
@@ -50,7 +49,6 @@ function DealOfTheDay() {
                         </a>
                     </div>
 
-                    {/* Right Column: The Product Slider */}
                     <div className="product-slider-wrapper">
                         {dealProducts.length > 0 ? (
                             <Slider {...settings} className="simple-slider">

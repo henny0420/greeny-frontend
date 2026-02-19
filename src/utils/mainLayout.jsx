@@ -9,14 +9,11 @@ function MainLayout() {
     return (
         <>
         
-            {/* <Header/> */}
             <Header/>
             <main>
-                {/* The <Outlet/> renders the actual page component */}
                 <Outlet />
             </main>
             <Footer/>
-            {/* You can add a <Footer /> component here later */}
         </>
     );
 }

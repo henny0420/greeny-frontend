@@ -15,7 +15,7 @@ const offersData = [
         title: 'Up to 50% OFF',
         description: 'Enjoy a sweet discount on a wide range of popular groceries and essentials.',
         buttonText: 'Shop Discounted Items',
-        link: '/shop?collection=on_sale' // We will need to build this backend logic
+        link: '/shop?collection=on_sale' 
     },
     {
         className: 'card-festive-off',
@@ -42,7 +42,6 @@ function OffersPage() {
             </div>
 
             <div className="offer-cards-grid">
-                {/* We map over the data array to create the four cards */}
                 {offersData.map((offer, index) => (
                     <div key={index} className={`offer-card ${offer.className}`}>
                         <div>

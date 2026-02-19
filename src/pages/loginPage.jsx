@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/authContext'; // 1. Import useAuth
-
-// You can create a login.css file and import it here if you have specific styles
-// import './css/login.css'; 
+import { useAuth } from '../context/authContext';
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth(); // 2. Get the login function from our context
+    const { login } = useAuth();
 
-    // This is the single, correct handleSubmit function
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
@@ -27,10 +23,8 @@ function LoginPage() {
             const data = await response.json();
 
             if (response.ok) {
-                // 3. Save the user data to our global context!
                 login(data);
 
-                // Redirect based on role
                 if (data.role === 'admin') {
                     navigate('/admin/dashboard');
                 } else {

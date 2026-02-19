@@ -2,35 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
-// Import images
 import heroImage1 from '/assets/images/herob.png';
 import heroImage2 from '/assets/images/basket.png';
 import heroImage3 from '/assets/images/bascket3.png';
 
-// Import the required CSS files for react-slick
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-// Import your custom CSS file which we will create next
 import '../css/home/heroBanner.css';
 
 function HeroBanner() {
-    // Settings for the slider component
     const settings = {
-        dots: true,       // Show navigation dots
-        infinite: true,   // Loop the slider
-        speed: 500,       // Transition speed in ms
-        slidesToShow: 1,    // Show one slide at a time
-        slidesToScroll: 1,  // Scroll one slide at a time
-        autoplay: true,     // Enable auto-play
-        autoplaySpeed: 1000 // Auto-play interval
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000
     };
 
     return (
-        // The main container for the slider. react-slick will add its classes here.
         <div className="herobanner-section">
             <Slider {...settings}>
-                {/* Slide 1 */}
                 <div className="slide">
                     <div className="herobanner container">
                         <div className="hero-text">
@@ -48,7 +42,6 @@ function HeroBanner() {
                     </div>
                 </div>
 
-                {/* Slide 2 */}
                 <div className="slide">
                     <div className="herobanner container">
                         <div className="hero-text">
@@ -65,7 +58,6 @@ function HeroBanner() {
                     </div>
                 </div>
 
-                {/* Slide 3 */}
                 <div className="slide">
                     <div className="herobanner container">
                         <div className="hero-text">

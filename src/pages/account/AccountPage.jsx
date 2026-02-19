@@ -2,28 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
-// Import the CSS for this page
 import '../css/account/account.css';
 
 function AccountPage() {
-    const { user, logout } = useAuth(); // Get user and logout function from context
+    const { user, logout } = useAuth();
     const navigate = useNavigate();
 
-    // State to manage which tab is active
     const [activePage, setActivePage] = useState('profile');
 
-    // State to hold user's data and orders
     const [name, setName] = useState(user?.name || '');
     const [orders, setOrders] = useState([]);
     const [message, setMessage] = useState('');
 
-    // Fetch the user's order history when the 'orders' tab is clicked
     useEffect(() => {
-        // This check ensures 'user' is not null before trying to read 'user._id'
         if (activePage === 'orders' && user) {
             const fetchOrders = async () => {
                 try {
-                    // We'll need a new backend endpoint for this
                     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/my-orders/${user._id}`);
                     if (response.ok) {
                         const data = await response.json();
@@ -37,15 +31,11 @@ function AccountPage() {
         }
     }, [activePage, user]);
 
-    // Handle profile update
     const handleProfileUpdate = (e) => {
         e.preventDefault();
-        // In a real app, you'd send this to a backend endpoint:
-        // fetch(`/api/users/update/${user._id}`, { method: 'PUT', ... })
         setMessage('<div class="success-message">Profile updated successfully!</div>');
     };
 
-    // Handle logout
     const handleLogout = () => {
         logout();
         navigate('/login');
@@ -62,7 +52,6 @@ function AccountPage() {
                 <aside>
                     <nav className="sidebar-nav">
                         <ul>
-                            {/* We use onClick to change the activePage state */}
                             <li><a onClick={() => setActivePage('profile')} className={activePage === 'profile' ? 'active' : ''}><i className="fas fa-user-circle"></i> My Profile</a></li>
                             <li><a onClick={() => setActivePage('orders')} className={activePage === 'orders' ? 'active' : ''}><i className="fas fa-box"></i> Order History</a></li>
                             <li><a onClick={() => setActivePage('addresses')} className={activePage === 'addresses' ? 'active' : ''}><i className="fas fa-map-marker-alt"></i> Saved Addresses</a></li>
@@ -72,10 +61,8 @@ function AccountPage() {
                 </aside>
 
                 <section>
-                    {/* The Profile Section */}
                     <div id="profile" className="content-box" style={{ display: activePage === 'profile' ? 'block' : 'none' }}>
                         <h2 className="text-xl font-semibold mb-6">My Profile</h2>
-                        {/* We use dangerouslySetInnerHTML to render the message HTML */}
                         {message && <div dangerouslySetInnerHTML={{ __html: message }} />}
                         <form onSubmit={handleProfileUpdate}>
                             <div className="form-grid-2">
@@ -94,7 +81,6 @@ function AccountPage() {
                         </form>
                     </div>
 
-                    {/* The Orders Section */}
                     <div id="orders" className="content-box" style={{ display: activePage === 'orders' ? 'block' : 'none' }}>
                         <h2 className="text-xl font-semibold mb-6">Order History</h2>
                         <table className="order-table">
@@ -121,7 +107,6 @@ function AccountPage() {
                         </table>
                     </div>
 
-                    {/* The Addresses Section */}
                     <div id="addresses" className="content-box" style={{ display: activePage === 'addresses' ? 'block' : 'none' }}>
                         <h2 className="text-xl font-semibold mb-6">Saved Addresses</h2>
                         <p>You have no saved addresses.</p>

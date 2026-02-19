@@ -4,7 +4,6 @@ const facebook = '/assets/logo/facebook.png';
 const logo = '/assets/logo/Greeny.png';
 const profile = '/assets/logo/profile.svg';
 import { Link, useNavigate } from 'react-router-dom';
-// FIX #1: Added useNavigate to the import
 import './Header.css';
 
 import { useAuth } from '../context/authContext';
@@ -12,8 +11,7 @@ import { useAuth } from '../context/authContext';
 function Header() {
   const [categories, setCategories] = useState([]);
   const { isLoggedIn, user, logout } = useAuth();
-  const navigate = useNavigate(); // FIX #1 (continued): Call the hook here
-
+  const navigate = useNavigate(); 
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleLogout = () => {
@@ -24,7 +22,6 @@ function Header() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      // This creates the correct URL, e.g., /shop?search=tomato
       navigate(`/shop?search=${searchTerm}`);
     }
   };
@@ -45,7 +42,6 @@ function Header() {
 
   return (
     <>
-      {/* SECTION 1 */}
       <div className="section1">
         <div className="container">
           <div className="info-section">
@@ -56,7 +52,6 @@ function Header() {
             <span>order now and get it within <span className="yellow">30 minutes</span></span>
             <div className="flex-end">
               <h6>Follow us</h6>
-              {/* FIX #2 (continued): Use image paths as simple strings */}
               <div className="round"><img src={instagram} alt="Instagram" /></div>
               <div className="round"><img src={facebook} alt="Facebook" /></div>
               {isLoggedIn ? (
@@ -77,7 +72,6 @@ function Header() {
         </div>
       </div>
 
-      {/* SECTION 2 */}
       <div className="header2">
         <div className="container">
           <div className="search-section">
@@ -132,7 +126,6 @@ function Header() {
         </div>
       </div>
 
-      {/* SECTION 3 */}
       <div className="header-elements">
         <div className="container">
           <div className="elements">

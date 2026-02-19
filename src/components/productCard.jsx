@@ -4,13 +4,10 @@ import { useAuth } from '../context/authContext';
 import './productCard.css'; 
 
 function ProductCard({ product, type = 'simple' }) {
-    // All hooks MUST be called at the top level, before any conditions.
     const { addToCart } = useAuth();
     const [quantity, setQuantity] = useState(1);
 
-    // --- RENDER LOGIC BASED ON 'type' PROP ---
 
-    // 1. Renders the DETAILED card (your 'about-product' style)
     if (type === 'detailed') {
         return (
             <div className="about-product">
@@ -45,7 +42,6 @@ function ProductCard({ product, type = 'simple' }) {
                     </div>
                     <div className="add-to-cart">
                         <button type="button" onClick={() => addToCart(product, quantity)}>
-                            {/* SVG Icon */}
                             <span>Add</span>
                         </button>
                     </div>
@@ -54,7 +50,6 @@ function ProductCard({ product, type = 'simple' }) {
         );
     }
     
-    // 2. Renders the FEATURED card
     if (type === 'featured') {
         return (
             <div className="product-card featured-card">
@@ -74,7 +69,6 @@ function ProductCard({ product, type = 'simple' }) {
         );
     }
 
-    // 3. Renders the SIMPLE card (default)
     return (
         <div className="product-card">
             <Link to={`/product/${product._id}`}>

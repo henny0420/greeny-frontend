@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './css/viewOrdersPage.css'; // You can create this file for styling
+import './css/viewOrdersPage.css';
 
 function ViewOrdersPage() {
     const [orders, setOrders] = useState([]);
@@ -23,7 +23,6 @@ function ViewOrdersPage() {
         fetchOrders();
     }, []);
 
-    // Helper to format date nicely
     const formatDate = (dateString) => {
         return new Date(dateString).toLocaleDateString('en-US', {
             year: 'numeric', month: 'long', day: 'numeric'
@@ -58,7 +57,6 @@ function ViewOrdersPage() {
                                 <td>{order.total_amount.toFixed(2)} Rs.</td>
                                 <td>{order.status}</td>
                                 <td className="action-links">
-                                    {/* This links to the Order Details page we already built */}
                                     <Link to={`/admin/orders/${order._id}`} className="edit">View Details</Link>
                                 </td>
                             </tr>

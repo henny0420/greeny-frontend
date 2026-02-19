@@ -28,7 +28,6 @@ function AddProductPage() {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`);
                 const data = await response.json();
                 setCategories(data);
-                // Set a default selected category if they exist
                 if (data.length > 0) {
                     setProduct(prevState => ({ ...prevState, category: data[0]._id }));
                 }
@@ -37,7 +36,7 @@ function AddProductPage() {
             }
         };
         fetchCategories();
-    }, []); // The empty array ensures this runs only once
+    }, []);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -92,9 +91,6 @@ function AddProductPage() {
                     <label htmlFor="imageUrl">Image URL:</label>
                     <input type="text" id="imageUrl" name="imageUrl" value={product.imageUrl} onChange={handleChange} placeholder="e.g., /assets/images/apple.jpg" required />
 
-                    {/* <label htmlFor="category">Category:</label> */}
-                    {/* For now a text input, we will make this a dropdown fetched from the DB later */}
-                    {/* <input type="text" id="category" name="category" value={product.category} onChange={handleChange} required /> */}
                     <label htmlFor="category">Category:</label>
                     <select id="category" name="category" value={product.category} onChange={handleChange} required>
                         <option value="" disabled>Select a category</option>
